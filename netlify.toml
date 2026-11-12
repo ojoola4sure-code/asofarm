@@ -5,7 +5,7 @@
 [build.environment]
   # The anon key is public by design and is written into public/js/config.js,
   # so Netlify's secret scanner must not treat it as a leak.
-  SECRETS_SCAN_OMIT_KEYS = "https://hflqgeakxfwstaetsrkw.supabase.co,sb_publishable_imon816y2RS1Tgy6_u2wNQ_SIjCZdL0"
+  SECRETS_SCAN_OMIT_KEYS = "SUPABASE_ANON_KEY"
 
 
 
