@@ -1,15 +1,10 @@
+
 [build]
   command = "node scripts/write-config.js"
   publish = "public"
 
 [build.environment]
-  # The anon key is public by design and is written into public/js/config.js,
-  # so Netlify's secret scanner must not treat it as a leak.
-  SECRETS_SCAN_OMIT_KEYS = "SUPABASE_ANON_KEY"
- 
-  SECRETS_SCAN_OMIT_KEYS = "SUPABASE_URL"
-
-
+  SECRETS_SCAN_OMIT_KEYS = "SUPABASE_URL,SUPABASE_ANON_KEY"
 
 [[redirects]]
   from = "/*"
