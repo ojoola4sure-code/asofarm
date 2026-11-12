@@ -1,0 +1,12 @@
+{
+  "name": "asofarm-fms",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "node scripts/write-config.js",
+    "seed": "node scripts/seed-users.mjs"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.45.4"
+  }
+}

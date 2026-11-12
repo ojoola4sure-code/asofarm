@@ -1,0 +1,10 @@
+# Edge functions do their own authorisation (staff JWT or the cron shared secret),
+# so the gateway's JWT check is turned off for them. Deploy with: supabase functions deploy
+[functions.ai-report]
+verify_jwt = false
+
+[functions.ai-vision]
+verify_jwt = false
+
+[functions.weather-sync]
+verify_jwt = false
