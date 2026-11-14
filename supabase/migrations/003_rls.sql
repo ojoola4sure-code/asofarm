@@ -246,3 +246,4 @@ revoke execute on function refresh_stage_progress(uuid) from authenticated;
 revoke execute on function generate_tax_filings(date) from authenticated;
 revoke execute on function dashboard_core(uuid, boolean) from authenticated;
 revoke execute on function generate_basic_report(text) from authenticated;
+revoke execute on function _rls(text, app_role[], app_role[], boolean) from authenticated;

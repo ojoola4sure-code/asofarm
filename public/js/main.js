@@ -8,6 +8,7 @@ import "./pages/accounting.js";
 import "./pages/sales.js";
 import "./pages/research.js";
 import "./pages/platform.js";
+import "./pages/public-admin.js";
 
 const app = document.getElementById("app");
 const MARK = `<svg width="38" height="38" viewBox="0 0 64 64" aria-hidden="true"><path d="M0 64 28 0h14L14 64z" fill="#fff"></path><path d="M32 64 50 22l14 42z" fill="#FFCC00"></path></svg>`;
@@ -24,7 +25,7 @@ function renderLogin(msg = "") {
     <div class="form-side"><form id="lf"><h2>Sign in</h2><div class="field"><label for="em">Work email</label><input id="em" type="email" autocomplete="username" placeholder="name@asofarm.com" required></div>
     <div class="field"><label for="pw">Password</label><input id="pw" type="password" autocomplete="current-password" required></div>
     <div class="err" id="le">${esc(msg)}</div><button class="btn" type="submit">Sign in</button>
-    <p class="muted small">Forgot your password? Ask the admin to reset it.</p></form></div></div>`;
+    <p class="muted small">Forgot your password? Ask the admin to reset it.</p><p class="small"><a href="/invest">Investors and supporters: view the farm plan</a></p></form></div></div>`;
   $("#lf").onsubmit = async (e) => {
     e.preventDefault();
     const btn = $("button", e.target); btn.disabled = true;

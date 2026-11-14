@@ -35,7 +35,7 @@ The starter password is set by `scripts/seed-users.mjs` (default `labalaba@2019`
 
 1. **Create a Supabase project.** Authentication > Providers > Email: turn **off** "Allow new users to sign up". (Roles are only ever set by the admin API, but there is no reason to leave sign-up open.)
 2. **Enable extensions:** Database > Extensions > enable `pg_cron` and `pg_net`.
-3. **Run the SQL** in the SQL Editor, in order: `001_schema.sql`, `002_functions.sql`, `003_rls.sql`, `004_seed.sql`, `005_views.sql`, `006_cron.sql`. Read any error before moving on; do not skip a file.
+3. **Run the SQL** in the SQL Editor, in order: `001_schema.sql`, `002_functions.sql`, `003_rls.sql`, `004_seed.sql`, `005_views.sql`, `006_cron.sql`, `007_public.sql`. Read any error before moving on; do not skip a file.
 4. **Create the users** on your computer:
    ```bash
    npm install
@@ -77,6 +77,19 @@ The starter password is set by `scripts/seed-users.mjs` (default `labalaba@2019`
 7. As **research**: add an observation and a disease case with a photo, press **AI check**; press **Sync now** on Weather.
 8. As **admin**: Automation > run daily checks; open Audit trail (via the accountant) and confirm the changes are listed.
 9. Confirm a role cannot open another role's pages or read its data (for example, the supervisor cannot see Journal or Payroll).
+
+## Public investor and support page (`/invest`)
+
+A page anyone can open without signing in, showing the plan, the live season progress and how each stage is done, with two calls to action: **Call for investment** and **Call for support** (plus tap-to-call and WhatsApp). Enquiries land in **Sales > Enquiries** and alert the admin and the sales role.
+
+1. Run `007_public.sql` (after 001 to 006).
+2. Sign in as admin (or sales) and open **Sales > Public page**. Edit the draft sections, publish the ones you are happy with, and add farm updates with photos.
+3. In **Settings**, check `public_phone`, `public_whatsapp`, `public_email` and `public_address`.
+4. When ready, switch on **Page is open to the public**. Share `https://your-site.netlify.app/invest`.
+
+What visitors can see: stage names, dates and progress, planned budget totals, the sections and updates you publish. They never see payments, salaries, bank details, supplier or buyer names, or internal notes. Spending to date and the step-by-step methods are optional switches.
+
+The draft text is a starting point written from the plan; all sections ship **unpublished**. Check every figure before publishing. Soliciting investment from the public can be regulated; take legal advice and avoid promising returns. Enquiry spam is limited by a hidden field, a per-email limit and an hourly cap; add Cloudflare Turnstile or hCaptcha if it becomes a problem.
 
 ## Known limits (read before relying on it)
 
